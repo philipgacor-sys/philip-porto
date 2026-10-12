@@ -1,0 +1,1587 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#14263f">
+  <meta name="description" content="Personal portfolio Philip Hardiwijaya Lo, mahasiswa Teknik Elektro Telkom University.">
+  <title>Philip Hardiwijaya Lo — Portfolio</title>
+
+  <style>
+    /* =================================
+       1. GLOBAL STYLE
+    ================================= */
+
+    :root {
+      --navy: #14263f;
+      --navy-dark: #0b1729;
+      --navy-light: #243d5c;
+      --blue: #668bb3;
+      --blue-light: #dce7f1;
+      --cream: #f5f1e8;
+      --paper: #fffdf8;
+      --white: #ffffff;
+      --ink: #202b38;
+      --muted: #687583;
+      --line: #dce0e4;
+      --radius: 24px;
+      --shadow: 0 18px 50px rgba(20, 38, 63, .09);
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue);
+      font-size: .75rem;
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+
+    .section-title {
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      overflow-wrap: break-word;
+    }
+
+    .section-description {
+      max-width: 700px;
+      margin-top: 16px;
+      color: var(--muted);
+    }
+
+    .accent {
+      color: var(--blue);
+    }
+
+    /* =================================
+       2. NAVIGATION
+    ================================= */
+
+    .header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      background: rgba(255, 253, 248, .9);
+      border-bottom: 1px solid rgba(20, 38, 63, .08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      color: var(--navy);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #4c5969;
+      font-size: .82rem;
+      font-weight: 650;
+    }
+
+    .nav-links a,
+    .mobile-menu a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-contact {
+      flex-shrink: 0;
+      padding: 10px 17px;
+      border-radius: 100px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 120;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+    }
+
+    /* =================================
+       3. HERO SECTION
+    ================================= */
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 100svh;
+      padding: 125px 0 80px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 78% 20%,
+          rgba(102, 139, 179, .17),
+          transparent 30%
+        ),
+        linear-gradient(135deg, var(--cream), var(--paper) 72%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -170px;
+      bottom: -220px;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(20, 38, 63, .1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      align-items: center;
+      gap: clamp(30px, 5vw, 65px);
+    }
+
+    .hero-content {
+      min-width: 0;
+    }
+
+    .hero-title {
+      margin: 24px 0;
+      color: var(--navy);
+      font-size: clamp(3.2rem, 6vw, 5.3rem);
+      font-weight: 950;
+      line-height: .99;
+      letter-spacing: -.07em;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+    }
+
+    .hero-title .first-name {
+      display: block;
+    }
+
+    .hero-title .surname {
+      display: block;
+      color: var(--blue);
+      font-size: .84em;
+      letter-spacing: -.065em;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid var(--navy);
+      border-radius: 99px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .83rem;
+      font-weight: 800;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(20, 38, 63, .15);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    /* LANDSCAPE PHOTO */
+
+    .portrait-card {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid rgba(20, 38, 63, .1);
+      border-radius: 28px;
+      background: rgba(32, 19, 19, 0.8);
+      box-shadow: var(--shadow);
+      transform: none;
+    }
+
+    .portrait-frame {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 19px;
+      background:
+        radial-gradient(circle at 50% 40%, #edf2f6, #cbd9e6);
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .portrait-caption {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 15px;
+      background: var(--cream);
+    }
+
+    .portrait-caption strong {
+      display: block;
+      color: var(--navy);
+      font-size: .95rem;
+    }
+
+    .portrait-caption span {
+      display: block;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* =================================
+       4. QUICK FACTS
+    ================================= */
+
+    .facts {
+      padding: 30px 0;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .fact {
+      min-width: 0;
+      padding: 24px;
+      background: var(--navy);
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 1.1rem;
+      overflow-wrap: anywhere;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 5px;
+      color: #c2cfdd;
+      font-size: .82rem;
+    }
+
+    /* =================================
+       5. ABOUT ME
+    ================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      align-items: start;
+      gap: 45px;
+    }
+
+    .about-copy {
+      color: var(--muted);
+    }
+
+    .quote {
+      margin-top: 25px;
+      padding: 20px;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 15px 15px 0;
+      background: var(--cream);
+      color: var(--navy);
+      font-style: italic;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      min-width: 0;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-number {
+      color: var(--blue);
+      font-size: .73rem;
+      font-weight: 900;
+      letter-spacing: .13em;
+    }
+
+    .skill-card h3 {
+      margin: 18px 0 7px;
+      color: var(--navy);
+      font-size: 1.1rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* =================================
+       6. EXPERIENCE TIMELINE
+    ================================= */
+
+    .experience-section {
+      background: var(--cream);
+    }
+
+    .timeline {
+      margin-top: 38px;
+      border-top: 1px solid #d5d7d8;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 155px minmax(0, 1fr);
+      gap: 30px;
+      padding: 28px 0;
+      border-bottom: 1px solid #d5d7d8;
+    }
+
+    .timeline-year {
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      color: var(--navy);
+      font-size: 1.4rem;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .timeline-item small {
+      display: inline-block;
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    .timeline-item p {
+      max-width: 790px;
+      margin-top: 10px;
+      color: #5e6975;
+    }
+
+    /* =================================
+       7. PROJECTS
+    ================================= */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      min-height: 285px;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-label {
+      color: var(--blue);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      margin: 21px 0 10px;
+      color: var(--navy);
+      font-size: 1.55rem;
+      line-height: 1.25;
+      letter-spacing: -.03em;
+      overflow-wrap: anywhere;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border: 1px solid transparent;
+      border-radius: 99px;
+      background: var(--blue-light);
+      color: var(--navy);
+      font-size: .74rem;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    /* =================================
+       8. TECHNICAL INTERESTS
+    ================================= */
+
+    .interests {
+      background: var(--navy-dark);
+      color: var(--white);
+    }
+
+    .interests .section-title {
+      color: var(--white);
+    }
+
+    .interests .section-description {
+      color: #c2cfdd;
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 35px;
+    }
+
+    .interest {
+      min-width: 0;
+      padding: 23px;
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .045);
+    }
+
+    .interest h3 {
+      color: #e8eef5;
+      font-size: 1rem;
+    }
+
+    .interest p {
+      margin-top: 7px;
+      color: #afbdcd;
+      font-size: .87rem;
+    }
+
+    /* =================================
+       9. CERTIFICATION
+    ================================= */
+
+    .certification {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .cert-icon {
+      display: grid;
+      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--blue-light);
+      color: var(--navy);
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    .certification h3 {
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .certification p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* =================================
+       10. CONTACT & FOOTER
+    ================================= */
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 28px;
+      padding: clamp(24px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--cream);
+    }
+
+    .contact-box h2 {
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -.05em;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-box p {
+      max-width: 650px;
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 25px 0;
+      background: var(--navy-dark);
+      color: #bfccda;
+      font-size: .8rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =================================
+       11. SCROLL ANIMATION
+    ================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =================================
+       12. RESPONSIVE TABLET
+    ================================= */
+
+    @media (max-width: 1000px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+        gap: 30px;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 5.5vw, 4.5rem);
+      }
+
+      .hero-title .surname {
+        font-size: .8em;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: .76rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    /* =================================
+       13. RESPONSIVE MOBILE
+    ================================= */
+
+    @media (max-width: 760px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links,
+      .nav-contact {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        position: absolute;
+        top: 72px;
+        right: 15px;
+        left: 15px;
+        z-index: 110;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .mobile-menu.open {
+        display: grid;
+        gap: 4px;
+      }
+
+      .mobile-menu a {
+        padding: 12px;
+        border-radius: 12px;
+        color: var(--navy);
+        font-size: .92rem;
+        font-weight: 750;
+      }
+
+      .mobile-menu a:hover {
+        background: var(--blue-light);
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 115px 0 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 11vw, 4.4rem);
+        line-height: 1;
+      }
+
+      .hero-title .surname {
+        font-size: .83em;
+      }
+
+      .hero-description {
+        font-size: .97rem;
+      }
+
+      .portrait-card {
+        width: 100%;
+        max-width: 650px;
+        margin-inline: auto;
+      }
+
+      .portrait-frame {
+        aspect-ratio: 16 / 9;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .fact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .timeline-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        padding: 24px 0;
+      }
+
+      .interest-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-box {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .contact-box .button {
+        width: fit-content;
+      }
+    }
+
+    /* =================================
+       14. SMALL PHONE
+    ================================= */
+
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 26px);
+      }
+
+      .brand {
+        max-width: 240px;
+        font-size: .71rem;
+        letter-spacing: .045em;
+      }
+
+      .hero-title {
+        font-size: clamp(2.7rem, 10.8vw, 3.5rem);
+      }
+
+      .hero-title .surname {
+        font-size: .79em;
+      }
+
+      .eyebrow {
+        font-size: .66rem;
+        letter-spacing: .09em;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: clamp(2.15rem, 9vw, 3.2rem);
+      }
+
+      .fact {
+        padding: 17px 13px;
+      }
+
+      .fact strong {
+        font-size: .97rem;
+      }
+
+      .fact span {
+        font-size: .74rem;
+      }
+
+      .skill-card,
+      .project-card,
+      .interest {
+        padding: 21px;
+      }
+
+      .interest-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .certification {
+        align-items: flex-start;
+        gap: 14px;
+        padding: 20px;
+      }
+
+      .cert-icon {
+        width: 47px;
+        height: 47px;
+        border-radius: 14px;
+      }
+
+      .contact-box .button {
+        width: 100%;
+      }
+
+      .portrait-caption strong {
+        font-size: .87rem;
+      }
+
+      .portrait-caption span {
+        font-size: .73rem;
+      }
+    }
+
+    /* Reduced motion accessibility */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="progress" id="progress"></div>
+
+  <!-- NAVIGATION -->
+  <header class="header">
+    <div class="container nav">
+
+      <a class="brand" href="#home">
+        PHILIP <span>HARDIWIJAYA LO</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#interests">Interests</a>
+      </nav>
+
+      <a class="nav-contact" href="#contact">Let's Connect ↗</a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Buka menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >☰</button>
+
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navigasi mobile">
+      <a href="#about">About Me</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects & Exploration</a>
+      <a href="#interests">Technical Interests</a>
+      <a href="#certification">Certification</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+          <div class="eyebrow">Personal Portfolio · 2026</div>
+
+          <h1 class="hero-title">
+            <span class="first-name">PHILIP</span>
+            <span class="surname">HARDIWIJAYA LO.</span>
+          </h1>
+
+          <p class="hero-description">
+            Mahasiswa S1 Teknik Elektro di Telkom University yang tertarik
+            pada teknologi, pengembangan diri, kerja sama tim, dan proses
+            mengubah ide menjadi sesuatu yang nyata.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#experience" class="button">Explore My Journey ↓</a>
+            <a href="#projects" class="button button-outline">View Projects ↗</a>
+          </div>
+        </div>
+
+        <div class="portrait-card reveal">
+<<<<<<< HEAD:coba.html
+          <div class="portrait-frame">
+            <!-- Simpan foto di assets/philip-portrait.jpg -->
+            <img
+              class="portrait"
+              src="assets/philip-portrait.jpg"
+              alt="Foto Philip Hardiwijaya Lo"
+            >
+          </div>
+
+=======
+          <img class="portrait" src="RobloxScreenShot20260104_115246598.png" alt="Foto formal Philip Hardiwijaya Lo" />
+>>>>>>> 1c43da4c4d193d54737f20f4e24175dee0ecf3a6:index.html
+          <div class="portrait-caption">
+            <strong>Philip Hardiwijaya Lo</strong>
+            <span>Electrical Engineering · Telkom University</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- QUICK FACTS -->
+    <section class="facts">
+      <div class="container">
+        <div class="fact-grid">
+
+          <div class="fact">
+            <strong>S1 Teknik Elektro</strong>
+            <span>Telkom University</span>
+          </div>
+
+          <div class="fact">
+            <strong>2020–2025</strong>
+            <span>Badminton Coaching</span>
+          </div>
+
+          <div class="fact">
+            <strong>±40 Atlet</strong>
+            <span>Leadership Experience</span>
+          </div>
+
+          <div class="fact">
+            <strong>Technology</strong>
+            <span>Learning & Exploration</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT ME -->
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">01 — About Me</div>
+          <h2 class="section-title">
+            A curious mind,<br>
+            <span class="accent">always growing.</span>
+          </h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="reveal">
+            <p class="about-copy">
+              Saya adalah mahasiswa Teknik Elektro yang senang mempelajari
+              hal baru, menghadapi tantangan, dan mengembangkan kemampuan
+              melalui pengalaman langsung.
+            </p>
+
+            <br>
+
+            <p class="about-copy">
+              Di luar perkuliahan, saya mendapatkan banyak pelajaran dari
+              pengalaman sebagai coach, kegiatan organisasi, dan komunitas
+              teknologi. Pengalaman tersebut membantu saya memahami
+              pentingnya disiplin, komunikasi, tanggung jawab, dan kerja sama.
+            </p>
+
+            <div class="quote">
+              "Progress comes from curiosity, consistency, and the courage
+              to keep learning."
+            </div>
+          </div>
+
+          <div class="skills-grid">
+
+            <article class="skill-card reveal">
+              <div class="skill-number">01 / PEOPLE</div>
+              <h3>People Skills</h3>
+              <p>
+                Memahami karakter, mendengarkan, dan berinteraksi
+                dengan berbagai orang.
+              </p>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-number">02 / LEADERSHIP</div>
+              <h3>Leadership</h3>
+              <p>
+                Memberikan arahan, menjaga motivasi, dan
+                bertanggung jawab terhadap tim.
+              </p>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-number">03 / ADAPTABILITY</div>
+              <h3>Adaptability</h3>
+              <p>
+                Menyesuaikan diri dengan lingkungan baru
+                dan menghadapi tantangan.
+              </p>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-number">04 / THINKING</div>
+              <h3>Problem Solving</h3>
+              <p>
+                Berpikir secara sistematis, mengevaluasi masalah,
+                dan mencari solusi.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">02 — Experience</div>
+          <h2 class="section-title">
+            Experiences that<br>
+            <span class="accent">shaped me.</span>
+          </h2>
+
+          <p class="section-description">
+            Setiap pengalaman memberi saya kesempatan untuk belajar,
+            bekerja bersama orang lain, dan memahami cara menghadapi
+            tantangan dari sudut pandang yang berbeda.
+          </p>
+        </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">2020–2025</div>
+            <div>
+              <h3>Head Badminton Coach</h3>
+              <small>Independent Badminton Training Program</small>
+              <p>
+                Membimbing sekitar 40 atlet melalui latihan, arahan,
+                evaluasi, dan pengembangan kedisiplinan. Pengalaman ini
+                melatih leadership, komunikasi, pengelolaan tim,
+                serta kemampuan memahami karakter individu.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">Campus</div>
+            <div>
+              <h3>PMK Telkom University</h3>
+              <small>Organization & Community</small>
+              <p>
+                Mendapatkan pengalaman berinteraksi dalam lingkungan
+                komunitas kampus, membangun relasi, dan bekerja sama
+                dengan orang lain.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">Campus</div>
+            <div>
+              <h3>UKM APTRG — Telkom University</h3>
+              <small>Technology & Project Exploration</small>
+              <p>
+                Mengenal lingkungan pengembangan proyek teknologi,
+                termasuk Computer Vision dan OpenCV, serta belajar
+                bekerja dalam tim dan menghadapi tantangan teknis.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-year">Campus</div>
+            <div>
+              <h3>GDG on Campus — Telkom University</h3>
+              <small>Technology Community & Learning</small>
+              <p>
+                Menjadi bagian dari komunitas pembelajaran teknologi
+                yang mendorong pertukaran wawasan, kolaborasi,
+                dan pengembangan kemampuan.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">03 — Projects & Exploration</div>
+          <h2 class="section-title">
+            Ideas into<br>
+            <span class="accent">possibilities.</span>
+          </h2>
+
+          <p class="section-description">
+            Beberapa bidang dan proyek yang menjadi bagian
+            dari perjalanan belajar saya.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <article class="project-card reveal">
+            <div>
+              <div class="project-label">Technology · Computer Vision</div>
+              <h3>Computer Vision & OpenCV</h3>
+              <p>
+                Eksplorasi pengolahan citra dan pengenalan objek
+                menggunakan Computer Vision dan OpenCV. Proses belajar
+                ini memperkenalkan saya pada penerapan pemrograman
+                untuk menyelesaikan masalah secara teknis.
+              </p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">OpenCV</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Problem Solving</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <div class="project-label">Innovation · Health Technology</div>
+              <h3>SweetGuard</h3>
+              <p>
+                Konsep ekosistem perawatan diabetes yang menghubungkan
+                ide produk, pemanfaatan bahan alami, pemantauan,
+                dan edukasi untuk membantu pengelolaan kesehatan.
+              </p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Innovation</span>
+              <span class="tag">Research</span>
+              <span class="tag">Product Concept</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <div class="project-label">Electronics · Hands-on Learning</div>
+              <h3>Electronics Exploration</h3>
+              <p>
+                Mempelajari komponen elektronika, rangkaian dasar,
+                pengukuran, serta cara kerja sistem melalui
+                praktikum dan percobaan.
+              </p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Electronics</span>
+              <span class="tag">Circuit Analysis</span>
+              <span class="tag">Practical Learning</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <div class="project-label">Personal Development</div>
+              <h3>Learning by Building</h3>
+              <p>
+                Saya tertarik mengembangkan ide melalui eksperimen,
+                mencoba pendekatan yang berbeda, dan mempelajari
+                hal baru secara bertahap.
+              </p>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Curiosity</span>
+              <span class="tag">Consistency</span>
+              <span class="tag">Growth</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TECHNICAL INTERESTS -->
+    <section class="section interests" id="interests">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">04 — Technical Interests</div>
+          <h2 class="section-title">
+            Exploring the<br>
+            <span style="color:#a8c4e3;">world of engineering.</span>
+          </h2>
+
+          <p class="section-description">
+            Bidang yang ingin terus saya pelajari dan kembangkan
+            seiring perjalanan saya di Teknik Elektro.
+          </p>
+        </div>
+
+        <div class="interest-grid">
+
+          <article class="interest reveal">
+            <h3>Embedded Systems</h3>
+            <p>Hubungan antara hardware, software, dan sistem tertanam.</p>
+          </article>
+
+          <article class="interest reveal">
+            <h3>Power Electronics</h3>
+            <p>Konversi dan pengendalian energi listrik menggunakan elektronika.</p>
+          </article>
+
+          <article class="interest reveal">
+            <h3>Control Systems</h3>
+            <p>Bagaimana suatu sistem dapat dipantau dan dikendalikan.</p>
+          </article>
+
+          <article class="interest reveal">
+            <h3>Avionics</h3>
+            <p>Sistem elektronik dan kendali yang digunakan dalam dunia penerbangan.</p>
+          </article>
+
+          <article class="interest reveal">
+            <h3>Robotics</h3>
+            <p>Integrasi sensor, mekanik, elektronika, dan pemrograman.</p>
+          </article>
+
+          <article class="interest reveal">
+            <h3>Computer Vision</h3>
+            <p>Pemrosesan informasi visual menggunakan sistem komputasi.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CERTIFICATION -->
+    <section class="section" id="certification">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">05 — Certification</div>
+          <h2 class="section-title">
+            Learning beyond<br>the classroom.
+          </h2>
+        </div>
+
+        <article class="certification reveal">
+          <div class="cert-icon">✓</div>
+          <div>
+            <h3>RCNA — Routing & Switching</h3>
+            <p>
+              Ruijie Networks · Sertifikasi berlaku hingga September 2028.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="contact-box reveal">
+          <div>
+            <div class="eyebrow">06 — Let's Connect</div>
+            <h2>
+              Always learning.<br>
+              Always <span class="accent">moving forward.</span>
+            </h2>
+
+            <p>
+              Saya terbuka untuk belajar, berbagi wawasan, dan
+              berkolaborasi dalam kegiatan atau proyek yang
+              memberikan pengalaman baru.
+            </p>
+          </div>
+
+          <a
+            class="button"
+            href="https://www.instagram.com/hardiwijaya.p/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Connect with me ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      <span>
+        © <span id="year"></span> Philip Hardiwijaya Lo
+      </span>
+      <span>Built with curiosity & consistency.</span>
+    </div>
+  </footer>
+
+
+  <script>
+    /* =================================
+       1. CURRENT YEAR
+    ================================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* =================================
+       2. SCROLL PROGRESS
+    ================================= */
+
+    const progress = document.getElementById("progress");
+
+    function updateProgress() {
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const percentage = scrollable > 0
+        ? (window.scrollY / scrollable) * 100
+        : 0;
+
+      progress.style.width = percentage + "%";
+    }
+
+    window.addEventListener("scroll", updateProgress, {
+      passive: true
+    });
+
+    updateProgress();
+
+
+    /* =================================
+       3. MOBILE MENU
+    ================================= */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    function closeMenu() {
+      mobileMenu.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Buka menu");
+      menuToggle.textContent = "☰";
+    }
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mobileMenu.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu" : "Buka menu"
+      );
+
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 760) {
+        closeMenu();
+      }
+    });
+
+
+    /* =================================
+       4. REVEAL ON SCROLL
+    ================================= */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        function (entries, currentObserver) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach(function (element) {
+        element.classList.add("show");
+      });
+    }
+  </script>
+
+</body>
+</html>
